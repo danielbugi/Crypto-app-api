@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --BabyBlue: #c3e0e5;
+  --DarkBlue: #274472;
+  --BlueGray: #5885af;
+  --MidnightBlue: #41729f;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  color: #000;
+}
+body {
+  font-family: "montserrat", sans-serif;
+}
+header {
+  width: 100%;
+  height: 30vh;
+  background-image: url("./blockchain.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+td .table-cell-1 {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  align-items: center;
+}
+.star-icon {
+  margin-right: 2rem;
+}
+.coin-rank {
+  margin-right: 4rem;
+}
+.coin-icon {
+  margin-right: 2rem;
+}
+
+.web-header {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  font-size: 8vw;
+  font-weight: 900;
+  margin: 0 auto;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: normal;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.9);
+}
+
+.section {
+  width: 100%;
+  height: 400vh;
+  background: linear-gradient(45deg, #49a09d, #343158);
+  display: flex;
+  justify-content: center;
+}
+.ticker-header {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 3rem 0 1rem 0;
+}
+
+.ticker-cotainer {
+  height: auto;
+  width: 80vw;
+}
+.ticker-table {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.ticker-table th {
+  font-size: 0.8rem;
+  padding: 8px;
+  background-color: rgb(65, 114, 159);
+}
+th:first-child {
+  padding-left: 16px;
+  display: flex;
+  align-self: start;
+}
+.ticker-table td {
+  padding: 16px;
+}
+
+.ticker-table td,
+.ticker-table th {
+  border-bottom: 1px solid var(--BlueGray);
+}
+td {
+  background-color: rgba(65, 114, 159, 0.6);
+}
+tbody tr:hover {
+  background-color: var(--BabyBlue);
+}
+
+.ticker-table th div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.t-btn {
+  display: flex;
+  flex-direction: row;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.up-down-err {
+  font-size: 7px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px 0 5px;
+}
+.fa-circle-info {
+  font: 7px;
+  color: var(--DarkBlue);
+}
+
+.td-con {
+  display: block;
+}
+
+.coin-img {
+  height: 20px;
+  width: 20px;
+}
+
+.symbol {
+  font-size: 12px;
+  color: #3636368c;
+}
+
+/*tooltip  */
+.info-con {
+  position: relative;
+  display: inline-block;
+}
+.tooltip-info {
+  display: none;
+  width: 300px;
+  font-weight: 200;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 17px 8px 8px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.info-con::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: #555 transparent transparent transparent;
+}
+
+.info-con:hover .tooltip-info {
+  display: block;
+  opacity: 1;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #333;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

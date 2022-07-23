@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cryptocurrency App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav></nav>
+    <header class="section-header">
+      <div class="web-header">CRYPTO</div>
+    </header>
+    <section class="section">
+      <div class="ticker-cotainer">
+        <h3 class="ticker-header">Cryptocurrency List</h3>
+        <table class="ticker-table">
+          <thead class="t-head" id="tHead">
+            <tr class="row-h">
+  
+              <th scope="col">
+                <div>
+                  <button class="t-btn" id="rankingBtn">
+                    ALL COINS
+                    <div class="up-down-err">
+                        <i class="fa-solid fa-angle-up"></i></i>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                  </button>
+                  <div class="info-con">
+                    <i class="fa-solid fa-circle-info" id="cap-info"></i>
+                  <span class="tooltip-info">Rank is the position of a cryptocurrency by Market Cap.</span>
+                </div>
+                </div>
+              </th>
+
+              <th scope="col">
+                <div>
+                  <button class="t-btn" id="priceBtn">
+                    PRICE
+                    <div class="up-down-err">
+                        <i class="fa-solid fa-angle-up"></i></i>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                  </button>
+                  <div class="info-con">
+                    <i class="fa-solid fa-circle-info" id="cap-info"></i>
+                  <span class="tooltip-info">Price is the cost of a single coin or token for a cryptocurreny. It is influenced bt supply & demand, availability, and many other factors.</span>
+                </div>
+                </div>
+              </th>
+
+              <th scope="col">
+                <div>
+                  <button class="t-btn" id="priceBtn">
+                    24H CHANGE
+                    <div class="up-down-err">
+                        <i class="fa-solid fa-angle-up"></i></i>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                  </button>
+                  <div class="info-con">
+                    <i class="fa-solid fa-circle-info" id="cap-info"></i>
+                  <span class="tooltip-info">24H Change show the precentage price difference in the market between now and 24 hours ago.</span>
+                </div>
+                </div>
+              </th>
+
+              <th scope="col">
+                <div>
+                  <button class="t-btn" id="priceBtn">
+                    24H VOLUME
+                    <div class="up-down-err">
+                        <i class="fa-solid fa-angle-up"></i></i>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                  </button>
+                  <div class="info-con">
+                    <i class="fa-solid fa-circle-info" id="cap-info"></i>
+                  <span class="tooltip-info">24H Volume shows the number of tokens traded in the market between now and 24 hours ago.</span>
+                </div>
+                </div>
+              </th>
+
+              <th scope="col"> 
+                <div>
+                  <button class="t-btn" id="priceBtn">
+                    MARKET CAP
+                    <div class="up-down-err">
+                        <i class="fa-solid fa-angle-up"></i></i>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                  </button>
+                  <div class="info-con">
+                    <i class="fa-solid fa-circle-info" id="cap-info"></i>
+                  <span class="tooltip-info">Market Cap is a cryptocurrency's total value and calculated by multiplying the Price abd Circulating Suppply.</span>
+                </div>
+              
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="t-body" id="data">
+   
+          </tbody>
+         
+        </table>
+        <div class="loader" id="loader"></div>
+      </div>
+   </section>
+
+
+
+
+
+  <script src="app.js"></script>
+    
+
+
+    <!-- <script>
+      const baseUrl ="https://api.coinranking.com/v2/coins";
+      const proxyUrl ="https://cors-anywhere.herokuapp.com/";
+      const apiKey = "coinrankinge51b5a8cff4089826bd212b449c7801acd6e256471939d76";
+
+      fetch(`${proxyUrl}${baseUrl}`, { 
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-My-Custom-Header': `${apiKey}`,
+      'Access-Control-Allow-Origin': "*"
+    }
+})
+  .then((response) => {
+    if (response.ok) {
+      response.json().then((json) => {
+        console.log(json.data);
+        let coinsData = json.data.coins;
+
+        if (coinsData.length > 0) {
+          var cryptoCoin = "";
+        }
+        //For Loop Starts
+        coinsData.forEach((coin) => {
+          cryptoCoin += "<tr>";
+          cryptoCoin += `<td><i class="fa-regular fa-star"></i></td>`;
+          cryptoCoin += `<td> ${coin.rank} </td>`;
+          cryptoCoin += `<td> <div class="td-con">${coin.name}<br> <span class="symbol">${coin.symbol}</span></div></td>`;
+          cryptoCoin += `<td> ${coin.price} </td>`;
+          cryptoCoin += `<td> ${coin.change}</td>`;
+          cryptoCoin += `<td> $${coin["24hVolume"]}</td>`;
+          cryptoCoin += `<td> ${coin.marketCap}</td>`;"<tr>";
+        });
+        //For Loop Ends
+        document.getElementById("data").innerHTML = cryptoCoin;
+      });
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+     -->
+
+    <!-- </script> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </body>
+</html>
