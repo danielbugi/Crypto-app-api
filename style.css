@@ -14,6 +14,7 @@
 }
 
 html {
+  /* font-size: 62.5%; */
   box-sizing: border-box;
   color: #000;
 }
@@ -22,8 +23,9 @@ body {
 }
 header {
   width: 100%;
+
   height: 30vh;
-  background-image: url("./blockchain.jpg");
+  background-image: url(/rcs/blockchain.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -93,9 +95,9 @@ td .table-cell-1 {
   background-color: rgb(65, 114, 159);
 }
 th:first-child {
-  padding-left: 16px;
-  display: flex;
-  align-self: start;
+  padding-right: 20rem;
+  /* display: flex;
+  align-self: start; */
 }
 .ticker-table td {
   padding: 16px;
@@ -205,5 +207,29 @@ tbody tr:hover {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 930px) {
+  html {
+    font-size: 80%;
+  }
+  .star-icon {
+    margin-right: 2rem;
+  }
+  .coin-rank {
+    margin-right: 2rem;
+  }
+  .coin-icon {
+    margin-right: 2rem;
+  }
+  th:first-child {
+    padding: 0;
+  }
+}
+@media (max-width: 740px) {
+  html {
+    font-size: 60%;
+    min-width: 660px;
   }
 }
